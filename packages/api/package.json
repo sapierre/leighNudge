@@ -1,0 +1,42 @@
+{
+  "name": "@turbostarter/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./env": "./src/env.ts",
+    "./utils": "./src/utils/index.ts",
+    "./schema": "./src/schema/index.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@turbostarter/prettier-config",
+  "dependencies": {
+    "@ai-sdk/openai": "2.0.59",
+    "@hono/zod-validator": "0.7.4",
+    "@turbostarter/auth": "workspace:*",
+    "@turbostarter/billing": "workspace:*",
+    "@turbostarter/db": "workspace:*",
+    "@turbostarter/email": "workspace:*",
+    "@turbostarter/i18n": "workspace:*",
+    "@turbostarter/shared": "workspace:*",
+    "@turbostarter/storage": "workspace:*",
+    "ai": "5.0.86",
+    "envin": "catalog:",
+    "hono": "4.10.4",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@turbostarter/eslint-config": "workspace:*",
+    "@turbostarter/prettier-config": "workspace:*",
+    "@turbostarter/tsconfig": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
+}

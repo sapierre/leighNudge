@@ -1,0 +1,56 @@
+import { redirect } from "next/navigation";
+
+import { Icons } from "@turbostarter/ui-web/icons";
+import { SidebarProvider } from "@turbostarter/ui-web/sidebar";
+
+import { pathsConfig } from "~/config/paths";
+import { getSession } from "~/lib/auth/server";
+import { DashboardInset } from "~/modules/common/layout/dashboard/inset";
+import { DashboardSidebar } from "~/modules/common/layout/dashboard/sidebar";
+
+const menu = [
+  {
+    label: "platform",
+    items: [
+      {
+        title: "home",
+        href: pathsConfig.dashboard.user.index,
+        icon: Icons.Home,
+      },
+      {
+        title: "ai",
+        href: pathsConfig.dashboard.user.ai,
+        icon: Icons.Brain,
+      },
+    ],
+  },
+  {
+    label: "account",
+    items: [
+      {
+        title: "settings",
+        href: pathsConfig.dashboard.user.settings.index,
+        icon: Icons.Settings,
+      },
+    ],
+  },
+];
+
+export default async function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const { user } = await getSession();
+
+  if (!user) {
+    return redirect(pathsConfig.auth.login);
+  }
+
+  return (
+    <SidebarProvider>
+      <DashboardSidebar user={user} menu={menu} />
+      <DashboardInset>{children}</DashboardInset>
+    </SidebarProvider>
+  );
+}

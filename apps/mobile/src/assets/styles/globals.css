@@ -1,0 +1,12 @@
+@import "@turbostarter/ui/globals.css";
+@import "nativewind/theme";
+
+@source "../../../../../packages/ui";
+
+@theme inline {
+  --font-sans: "Geist_400Regular", "sans-serif";
+  --font-sans-medium: "Geist_500Medium", "sans-serif";
+  --font-sans-semibold: "Geist_600SemiBold", "sans-serif";
+  --font-sans-bold: "Geist_700Bold", "sans-serif";
+  --font-mono: "GeistMono_400Regular", "monospace";
+}

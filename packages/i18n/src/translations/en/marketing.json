@@ -1,0 +1,242 @@
+{
+  "product": {
+    "title": "Ship your startup everywhere. In minutes.",
+    "description": "This is a demo application built with TurboStarter. It will save you time and effort building your next SaaS.",
+    "mobile": {
+      "ios": {
+        "title": "iOS App",
+        "description": "Native experience on iPhone and iPad"
+      },
+      "android": {
+        "title": "Android App",
+        "description": "Optimized for Android phones"
+      }
+    },
+    "extension": {
+      "chrome": {
+        "title": "Chrome Extension",
+        "description": "Integration with Chrome browser"
+      },
+      "firefox": {
+        "title": "Firefox Add-on",
+        "description": "Enhanced browsing for Firefox users"
+      },
+      "edge": {
+        "title": "Edge Add-on",
+        "description": "Powerful tools for Microsoft Edge"
+      }
+    }
+  },
+  "announcement": "Amazing feature of your SaaS!",
+  "shippedWith": "Shipped with awesome tools",
+  "cta": {
+    "question": "Ready to start?",
+    "button": "Start for free",
+    "buy": {
+      "question": "Ready to start?",
+      "description": "Purchase to unlock full access to the codebase and start shipping your product today. On all platforms.",
+      "button": "Get access",
+      "join": {
+        "description": "Join our Discord community to stay updated and connect with like-minded individuals.",
+        "button": "Join us"
+      }
+    }
+  },
+  "editToReload": "Edit <code>{{file}}</code> and save to reload.",
+  "workInProgress": {
+    "title": "We're working on it!",
+    "description": "{{feature}} is currently not available. We're working on it and it will be available soon."
+  },
+  "features": {
+    "label": "Features",
+    "title": "Powerful features that makes us different",
+    "description": "Everything you need to build, deploy, and scale your applications with confidence.",
+    "feature": {
+      "core": {
+        "title": "Core platform",
+        "description": "Essential tools that power your application with built-in authentication, database, and API."
+      },
+      "ai": {
+        "title": "AI-powered capabilities",
+        "description": "Intelligent features with smart recommendations and automated workflows powered by AI."
+      },
+      "mobile": {
+        "title": "Native mobile experience",
+        "description": "Fully-featured mobile app with seamless synchronization across all your devices."
+      },
+      "extension": {
+        "title": "Browser extension",
+        "description": "Powerful browser extension that gives you access to key features directly from your browser."
+      }
+    }
+  },
+  "testimonials": {
+    "label": "Testimonials",
+    "title": "What our users say",
+    "description": "Hear from our users about their experience with the platform.",
+    "rating": "{{rating}} from {{count}}+ reviews",
+    "reviews": {
+      "jack": {
+        "name": "Jack",
+        "position": "Full Stack Developer",
+        "body": "This platform has revolutionized my development workflow. The seamless integration and top-notch documentation make building applications effortless."
+      },
+      "jill": {
+        "name": "Jill",
+        "position": "Startup Founder",
+        "body": "As a startup founder, this platform got me from idea to MVP in two weeks. The built-in components saved countless development hours."
+      },
+      "john": {
+        "name": "John",
+        "position": "Senior Developer",
+        "body": "The developer experience is unmatched. TypeScript setup to deployment just works out of the box with incredible polish and attention to detail."
+      },
+      "sarah": {
+        "name": "Sarah",
+        "position": "Product Manager",
+        "body": "Everything scales beautifully. From prototype to thousands of users without issues. The analytics give incredible insights into performance."
+      },
+      "mike": {
+        "name": "Mike",
+        "position": "Engineering Lead",
+        "body": "The community support is incredible. Quick, detailed responses and regular updates keep making the platform even better."
+      }
+    }
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Have a question? We got answers",
+    "description": "Find answers to frequently asked questions about features, pricing, implementation, and getting started with our platform.",
+    "cta": "Contact us",
+    "question": {
+      "whatDoesOurPlatformDo": {
+        "question": "What does our platform do?",
+        "answer": "Our platform is a comprehensive solution that helps businesses build, scale, and grow to the next level with AI-powered tools and automation."
+      },
+      "howWillThisBenefitMyBusiness": {
+        "question": "How will this benefit my business?",
+        "answer": "Our platform increases team efficiency, improves conversion rates, and provides valuable insights through analytics and automation to help your business grow faster."
+      },
+      "isMyDataSafe": {
+        "question": "Is my data safe?",
+        "answer": "Yes, we implement enterprise-grade security features and comply with industry standards to ensure your data is completely secure and protected."
+      },
+      "whatKindOfIntegrationsAreAvailable": {
+        "question": "What kind of integrations are available?",
+        "answer": "We offer seamless integrations with popular tools and platforms to streamline your workflow and connect with your existing tech stack."
+      },
+      "howEasyIsItToOnboardMyTeam": {
+        "question": "How easy is it to onboard my team?",
+        "answer": "Our platform is designed for quick and easy onboarding with intuitive interfaces, comprehensive documentation, and dedicated support to get your team up and running fast."
+      },
+      "whatTypesOfBusinessesCanUseThis": {
+        "question": "What types of businesses can use this?",
+        "answer": "Our platform is suitable for businesses of all sizes, from startups to enterprises, across various industries including tech, healthcare, education, and more."
+      },
+      "canICustomizeThisToFitMyBusinessNeeds": {
+        "question": "Can I customize this to fit my business needs?",
+        "answer": "Absolutely! Our platform offers extensive customization options and flexible workflows that can be tailored to match your specific business requirements and processes."
+      }
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Get in touch with us today for support",
+    "cta": "Talk to sales",
+    "description": "Reach us for assistance or feedback",
+    "form": {
+      "name": {
+        "placeholder": "John Doe"
+      },
+      "email": {
+        "placeholder": "your@email.com"
+      },
+      "message": {
+        "placeholder": "How can we help you?"
+      },
+      "submit": "Send message",
+      "success": {
+        "title": "Message sent!",
+        "description": "Thank you for your message. We'll get back to you soon."
+      }
+    },
+    "email": {
+      "subject": "You've received a new contact form submission",
+      "body": "New contact form submission"
+    }
+  },
+  "blog": {
+    "label": "Blog",
+    "title": "News and updates about the platform",
+    "description": "Stay up to date with the latest news, insights, and updates from our platform. Discover new features, best practices, and industry trends.",
+    "timeToRead": "{{time}} min read",
+    "tag": {
+      "learning": "learning",
+      "skills": "skills",
+      "progress": "progress",
+      "product": "product",
+      "development": "development",
+      "prototype": "prototype",
+      "launch": "launch"
+    }
+  },
+  "api": {
+    "title": "API Reference",
+    "description": "Build integrations with our API"
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "description": "See what's coming next"
+  },
+  "docs": {
+    "title": "Docs",
+    "description": "Learn how to use TurboStarter"
+  },
+  "ai": {
+    "description": "Unlock productivity and innovation with TurboStarter's AI assistant. Get instant answers, automate tasks, and boost your workflow using advanced artificial intelligence—secure, reliable, and designed for modern teams.",
+    "prompt": {
+      "history": "Tell the history of the internet",
+      "capitals": "Quiz me on the world capitals",
+      "quantum": "Explain quantum computing",
+      "realWorld": "Describe a real-world AI case"
+    },
+    "placeholder": "Ask a question...",
+    "cta": "Submit"
+  },
+  "setup": {
+    "steps": {
+      "step": {
+        "start": {
+          "title": "This is a simple step",
+          "description": "You need to press Continue button to proceed to the next step"
+        },
+        "required": {
+          "title": "This is a required step",
+          "description": "You have to complete all the required fields to proceed to the next step",
+          "fields": {
+            "data": "I understand that my data is private and encrypted",
+            "privacy": "I've read and agree to the <a>Privacy Policy</a>"
+          }
+        },
+        "skip": {
+          "title": "This is a skip step",
+          "description": "You can skip this step and proceed to the next step"
+        },
+        "final": {
+          "title": "This is a final step",
+          "description": "You have completed all the steps, enjoy your new app!"
+        }
+      }
+    }
+  },
+  "update": {
+    "available": {
+      "title": "New update available!",
+      "description": "A new update is ready to be installed. Click below to install it or dismiss for later."
+    },
+    "installing": {
+      "title": "Installing update...",
+      "description": "The update is being installed. Please wait a moment."
+    }
+  }
+}

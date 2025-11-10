@@ -1,0 +1,35 @@
+name: CI / Publish mobile
+
+on:
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: 22.x
+
+jobs:
+  tests:
+    name: 🧪 Tests
+    uses: ./.github/workflows/tests.yml
+
+  publish:
+    name: 🚀 Publish mobile
+    runs-on: ubuntu-latest
+    environment: Production
+    needs: [tests]
+    steps:
+      - name: ✅ Checkout code
+        uses: actions/checkout@v5
+
+      - name: 🔨 Setup
+        uses: ./tooling/github/setup
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 🏗 Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: 💨 Publish!
+        run: cd apps/mobile && eas build --platform all --profile production --non-interactive --no-wait --auto-submit

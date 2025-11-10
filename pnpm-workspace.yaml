@@ -1,0 +1,28 @@
+packages:
+  - apps/*
+  - packages/**
+  - tooling/*
+
+catalog:
+  "@tanstack/react-query": 5.90.6
+  "@tanstack/react-query-devtools": 5.90.2
+  "@tanstack/react-table": 8.21.3
+  envin: 1.1.10
+  eslint: 9.39.0
+  prettier: 3.6.2
+  react-hook-form: 7.66.0
+  react-native: 0.81.5
+  typescript: 5.9.3
+  zod: 4.1.12
+
+catalogs:
+  node22:
+    "@types/node": 22.16.0
+  react19:
+    "@types/react": 19.1.14
+    "@types/react-dom": 19.1.9
+    react: 19.1.0
+    react-dom: 19.1.0
+
+patchedDependencies:
+  react-native-css@3.0.1: patches/react-native-css@3.0.1.patch

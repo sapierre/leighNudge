@@ -1,0 +1,47 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        ".cache/tsbuildinfo.json",
+        "dist/**",
+        "build/**",
+        ".expo/**",
+        ".output/**",
+        ".vercel/output/**"
+      ]
+    },
+    "format": {
+      "outputs": [".cache/.prettiercache"],
+      "outputLogs": "new-only"
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "outputs": [".cache/.eslintcache"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": [".cache/tsbuildinfo.json"]
+    },
+    "dev": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "setup": {
+      "cache": false,
+      "dependsOn": ["@turbostarter/db#db:setup"]
+    }
+  },
+  "globalEnv": ["DATABASE_URL", "PRODUCT_NAME", "URL", "DEFAULT_LOCALE"],
+  "globalPassThroughEnv": [
+    "NODE_ENV",
+    "SKIP_ENV_VALIDATION",
+    "npm_lifecycle_event"
+  ]
+}

@@ -1,0 +1,123 @@
+diff --git a/dist/commonjs/native/styles/index.js b/dist/commonjs/native/styles/index.js
+index 6512ed54c117efaa85d9024e090942ea714f08ba..028196daccaf8be6d876c66b88a6d7f09e6c59fb 100644
+--- a/dist/commonjs/native/styles/index.js
++++ b/dist/commonjs/native/styles/index.js
+@@ -66,12 +66,33 @@ function deepMergeConfig(config, left, right, rightIsInline = false) {
+       ...left
+     };
+   }
+-  let result = config.target ? Object.assign({}, left, right) : {
+-    ...left
+-  };
+-  if (right && rightIsInline && config.source in right && config.target !== config.source) {
+-    delete result[config.source];
+-  }
++    // Handle style merging to support both className and inline style props
++  let result;
++  if (config.target) {
++    if (Array.isArray(config.target) && config.target.length === 1 && config.target[0] === "style") {
++      // Special handling for style target when we have inline styles
++      result = { ...left, ...right };
++      if (left?.style && right?.style && rightIsInline) {
++        // Only create style arrays when we have different properties that should coexist
++        const leftKeys = new Set(Object.keys(left.style));
++        const rightKeys = new Set(Object.keys(right.style));
++        const hasNonOverlappingProperties = [...leftKeys].some(key => !rightKeys.has(key));
++
++        if (hasNonOverlappingProperties) {
++          // Different properties exist - create array for React Native to merge both
++          result.style = [left.style, right.style];
++        }
++        // If all properties overlap, right.style will override via Object.assign above
++      }
++    } else {
++      result = Object.assign({}, left, right);
++    }
++  } else {
++    result = { ...left };
++  }  if (right && rightIsInline && config.source in right && config.target !== config.source) {
++     delete result[config.source];
++   }
++
+ 
+   /**
+    *  If target is a path, deep merge until we get to the last key
+diff --git a/dist/module/native/styles/index.js b/dist/module/native/styles/index.js
+index 6e52ce002e9fe6369e27ebd8226285b66e65a107..636e19e318e0ce2c4cdf25bb77bae3b8d9ad6966 100644
+--- a/dist/module/native/styles/index.js
++++ b/dist/module/native/styles/index.js
+@@ -61,12 +61,32 @@ function deepMergeConfig(config, left, right, rightIsInline = false) {
+       ...left
+     };
+   }
+-  let result = config.target ? Object.assign({}, left, right) : {
+-    ...left
+-  };
+-  if (right && rightIsInline && config.source in right && config.target !== config.source) {
+-    delete result[config.source];
+-  }
++   // Handle style merging to support both className and inline style props
++  let result;
++  if (config.target) {
++    if (Array.isArray(config.target) && config.target.length === 1 && config.target[0] === "style") {
++      // Special handling for style target when we have inline styles
++      result = { ...left, ...right };
++      if (left?.style && right?.style && rightIsInline) {
++        // Only create style arrays when we have different properties that should coexist
++        const leftKeys = new Set(Object.keys(left.style));
++        const rightKeys = new Set(Object.keys(right.style));
++        const hasNonOverlappingProperties = [...leftKeys].some(key => !rightKeys.has(key));
++
++        if (hasNonOverlappingProperties) {
++          // Different properties exist - create array for React Native to merge both
++          result.style = [left.style, right.style];
++        }
++        // If all properties overlap, right.style will override via Object.assign above
++      }
++    } else {
++      result = Object.assign({}, left, right);
++    }
++  } else {
++    result = { ...left };
++  }  if (right && rightIsInline && config.source in right && config.target !== config.source) {
++     delete result[config.source];
++   }
+ 
+   /**
+    *  If target is a path, deep merge until we get to the last key
+diff --git a/src/native/styles/index.ts b/src/native/styles/index.ts
+index 09ab073edc5d73eec0940f38b016c862004a4b87..bfb0e3bcf64207440359651d6da8818dd4c4c34f 100644
+--- a/src/native/styles/index.ts
++++ b/src/native/styles/index.ts
+@@ -135,7 +135,30 @@ function deepMergeConfig(
+     return { ...left };
+   }
+ 
+-  let result = config.target ? Object.assign({}, left, right) : { ...left };
++  // Handle style merging to support both className and inline style props
++  let result: Record<string, any>;
++  if (config.target) {
++    if (Array.isArray(config.target) && config.target.length === 1 && config.target[0] === "style") {
++      // Special handling for style target when we have inline styles
++      result = { ...left, ...right };
++      if (left?.style && right?.style && rightIsInline) {
++        // Only create style arrays when we have different properties that should coexist
++        const leftKeys = new Set(Object.keys(left.style));
++        const rightKeys = new Set(Object.keys(right.style));
++        const hasNonOverlappingProperties = [...leftKeys].some(key => !rightKeys.has(key));
++
++        if (hasNonOverlappingProperties) {
++          // Different properties exist - create array for React Native to merge both
++          result.style = [left.style, right.style];
++        }
++        // If all properties overlap, right.style will override via Object.assign above
++      }
++    } else {
++      result = Object.assign({}, left, right);
++    }
++  } else {
++    result = { ...left };
++  }
+ 
+   if (
+     right &&
